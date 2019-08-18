@@ -5,12 +5,15 @@ typedef OnTapped = Function(Color color);
 class ColorItem extends StatelessWidget {
   final OnTapped onTapped;
   final Color color;
+  final Color borderColor;
 
   ColorItem({
     @required Color color, 
-    @required OnTapped onTapped
+    @required OnTapped onTapped,
+    Color borderColor
   }) : color = color ?? Colors.white,
-       onTapped = onTapped ?? onTapped;
+       onTapped = onTapped ?? onTapped,
+       borderColor = borderColor ?? Colors.black;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +28,7 @@ class ColorItem extends StatelessWidget {
           width: 40.0,
           child: Container(color: color),
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.black)
+            border: Border.all(color: borderColor)
           )
         )
       )

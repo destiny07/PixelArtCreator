@@ -28,9 +28,16 @@ class ColorPicker extends StatelessWidget {
     );
   }
 
-  Widget _createColorItem(PixelProvider provider, Color color) {
+  Widget _createColorItem(
+    PixelProvider provider, 
+    Color color
+  ) {
+    var borderColor = provider.currentColor == color
+        ? Colors.lightBlueAccent
+        : Colors.black;
     return ColorItem(
       color: color,
+      borderColor: borderColor,
       onTapped: (color) {
         provider.currentColor = color;
       }
